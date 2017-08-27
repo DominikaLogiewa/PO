@@ -40,7 +40,7 @@ public:
 
 	friend List<Flight*>* loadFlights(List<Airport>*);
 	friend class List<Flight>;
-
+	friend  class List<Airport>;
 	// overloading operators > < <= >= ==
 	// allows to compare 2 different flight objects based on the departure time
 

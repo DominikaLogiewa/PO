@@ -20,7 +20,7 @@ public:
 	string ToString();
 
 	// FUNKCJE PSIAPSIӣKI!
-
+	friend  class List<Airport>;
 	friend List<Airport>* loadAirports();
 	friend List<Flight*>* loadFlights(List<Airport>*);
 

@@ -22,7 +22,7 @@ struct myOwnTimeStruct
 	string TimeToString()
 	{
 		ostringstream oss;
-		oss << hour << ":" << min;
+		oss <<"\t"<< hour << ":" << min;
 		string str = oss.str();
 		return str;
 	}

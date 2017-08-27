@@ -34,7 +34,6 @@ private:
 	T data;
 	ListNode* nextNode;
 public:
-//	friend  void List<T>::delete_element(ListNode<T>* elem);
 	friend class List<T>;
 	T getData();
 	ListNode(T);
@@ -55,17 +54,16 @@ template<typename T> class List {
 
 private:
     friend int main();
+	void delete_element(ListNode<T>* elem);
     ListNode<T>* head;
     ListNode<T>* tail;
     void insertBefore(T);
     void insertBehind(T);
 	List<T>* sort_by_airport_name(List<T>* L);
-	void delete_element(ListNode<T>* elem);
     void _print(true_type);
     void _print(false_type);
 
 public:
-    void copy_list(List<T>* obj);
     // check for head to see if list is empty
     bool isEmpty()
     {
@@ -79,6 +77,8 @@ public:
     List();
     ~List();
 };
+
+
 
 // Wstawianie elementu na pocz�tek listy
 template<typename T> void List<T>::insertBefore(T data)
@@ -121,7 +121,6 @@ template<typename T> void List<T>::addElement(T data)
 
 		else if (data >= tail->data)
             insertBehind(data);
-
 		else
 		{
 			ListNode<T>* pointer = head;
@@ -239,31 +238,6 @@ template<typename T> List<T>::~List()
 
 
 template<typename T>
- void List<T>::delete_element(ListNode<T>* elem)
-{
-	 ListNode<T>* del = head;
-	if (elem == head && (elem->getData()->getDeparture().name.compare(head>getData()->getDeparture().name)==0)
-		&& (elem->getData()->getDeparture().country.compare(head>getData()->getDeparture().country) == 0))
-	{
-		popFirst();
-		return ;
-	}
-	else if (elem == tail && (elem->getData()->getDeparture().name.compare(head > getData()->getDeparture().name) == 0)
-		&& (elem->getData()->getDeparture().country.compare(head-> getData()->getDeparture().country) == 0))
-	{
-
-		del = tail;
-		tail = head;
-		while (tail->nextNode)
-		{
-
-			tail = tail->nextNode;
-		}
-		delete del;
-	}
-}
-
-template<typename T>
 List<T>* List<T>:: sort_by_airport_name(List<T>* L)
 {
 	if (L == NULL)
@@ -274,23 +248,57 @@ List<T>* List<T>:: sort_by_airport_name(List<T>* L)
 	ListNode<Flight*>* pointer = L->head;
 	if (pointer->nextNode == NULL)
 	{
-		cout << pointer->data->ToString();
+		cout << pointer->data->ToString() << endl;;
 		return NULL;
 	}
-	ListNode<Flight*>* search_pointer = L->head;
-	while (search_pointer)
+	while (!isEmpty())
 	{
-		//pionter stays at the minumum value, search_pointer is gonna go through the list
-		if (pointer->getData()->getDeparture().getName().compare(search_pointer->getData()->getDeparture().getName()) > 0)
+		pointer = L->head;
+		ListNode<Flight*>* search_pointer = L->head;
+		while (search_pointer)
 		{
-			pointer = search_pointer;
+			//pionter stays at the minumum value, search_pointer is gonna go through the list
+			if (pointer->getData()->getDeparture().getName().compare(search_pointer->getData()->getDeparture().getName()) > 0)
+			{
+				pointer = search_pointer;
+			}
+			search_pointer = search_pointer->nextNode;
 		}
-		search_pointer = search_pointer->nextNode;
+		cout << pointer->data->ToString() << endl;
+		delete_element(pointer);
 	}
-	cout << pointer->data->ToString() << endl;
 }
 
-
+template<typename T> void List<T>::delete_element(ListNode<T>* elem)
+{
+	ListNode<T>* del = head;
+	if ((elem == head && (elem->getData()->getDeparture().getName().compare(head->getData()->getDeparture().getName())) == 0)
+		&& (elem->getData()->getDeparture().getCountry().compare(head->getData()->getDeparture().getCountry()) == 0))
+	{
+		del = elem;
+		head = head->nextNode;
+		delete del;
+	}
+	else if ((elem == tail && (elem->getData()->getDeparture().getName().compare(tail->getData()->getDeparture().getName())) == 0)
+		&& (elem->getData()->getDeparture().getCountry().compare(tail->getData()->getDeparture().getCountry()) == 0))
+	{
+		del = tail;
+		tail = head;
+		while (tail->nextNode!=del)
+			tail = tail->nextNode;
+		delete del;
+		tail->nextNode = NULL;
+	}
+	else
+	{
+		ListNode<T>* del2 = elem;
+		del = head;
+		while (del->nextNode != del2)
+			del=del->nextNode;
+		del->nextNode = del2->nextNode;
+		delete del2;
+	}
+}
 
 // FIXME NOT IMPLEMENTED YET
 

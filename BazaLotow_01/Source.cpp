@@ -206,12 +206,15 @@ int main()
 							Passenger_flight dummy(*pointer2);
 							pointer->data->getId() == -1 ? NULL : COPIED_Flight_list->addElement(new Passenger_flight(dummy));
 						}
-
 						pointer = pointer->nextNode;
 					}
+					cout << "********************************" << endl;
+					Flight_list->print();
+					cout << "********************************" << endl;
 					COPIED_Flight_list->print();
-				
-
+					cout << "********************************" << endl;
+					COPIED_Flight_list->sort_by_airport_name(COPIED_Flight_list);
+					//COPIED_Flight_list->print();
 					break;
 				}
 				else if (choice == 2)
@@ -229,12 +232,11 @@ int main()
 							Cargo_flight* pointer2 = (Cargo_flight*)pointer->data;
 							Cargo_flight dummy(*pointer2);
 							pointer->data->getId() == -1 ? NULL : COPIED_Flight_list->addElement(new Cargo_flight(dummy));
-							COPIED_Flight_list->sort_by_airport_name(COPIED_Flight_list);
-							
 						}
 						pointer = pointer->nextNode;
 					}
-					COPIED_Flight_list->print();
+					COPIED_Flight_list->sort_by_airport_name(COPIED_Flight_list);
+					break;
 				}
 				else
 				{
