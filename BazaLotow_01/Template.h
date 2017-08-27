@@ -153,7 +153,7 @@ template<typename T> T* List<T>::findElement(T element)
 	}
 	return NULL;
 }
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 // Usuni�cie pierwszego elementu z listy i zwr�cenie go
 template<typename T> T List<T>::popFirst()
 {
@@ -200,7 +200,6 @@ template<typename T> void List<T>::_print(std::false_type)
 {
 	if (isEmpty())
         cout << "List empty" << endl;
-
 	else
 	{
 		ListNode<T>* pointer = head;
@@ -238,16 +237,18 @@ template<typename T> List<T>::~List()
 	}
 }
 
+
+
 template<typename T>
  void List<T>::delete_element(ListNode<T>* elem)
 {
+	 ListNode<T>* del = head;
 	if (elem == head && (elem->getData()->getDeparture().name.compare(head>getData()->getDeparture().name)==0)
 		&& (elem->getData()->getDeparture().country.compare(head>getData()->getDeparture().country) == 0))
 	{
 		popFirst();
 		return ;
 	}
-	ListNode<T>* del = head;
 	else if (elem == tail && (elem->getData()->getDeparture().name.compare(head > getData()->getDeparture().name) == 0)
 		&& (elem->getData()->getDeparture().country.compare(head-> getData()->getDeparture().country) == 0))
 	{
@@ -264,7 +265,7 @@ template<typename T>
 }
 
 template<typename T>
-List<T>* sort_by_airport_name(List<T>* L)
+List<T>* List<T>:: sort_by_airport_name(List<T>* L)
 {
 	if (L == NULL)
 	{

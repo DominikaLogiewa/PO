@@ -229,6 +229,8 @@ int main()
 							Cargo_flight* pointer2 = (Cargo_flight*)pointer->data;
 							Cargo_flight dummy(*pointer2);
 							pointer->data->getId() == -1 ? NULL : COPIED_Flight_list->addElement(new Cargo_flight(dummy));
+							COPIED_Flight_list->sort_by_airport_name(COPIED_Flight_list);
+							
 						}
 						pointer = pointer->nextNode;
 					}
