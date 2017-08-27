@@ -33,6 +33,7 @@ void Passenger_flight::setTicket_price(float price)
 		ticket_price = 250.0;
 	}
 }
+
 string Passenger_flight::ToString()
 {
 	string str;
