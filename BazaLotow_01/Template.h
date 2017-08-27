@@ -216,18 +216,11 @@ template<typename T> void List<T>::_print(std::false_type)
 	}
 }
 
-<<<<<<< HEAD
 
 // Konstruktor domyœlny listy
 template<typename T>
 List<T>::List() { head = tail = nullptr; }
-=======
-// Konstruktor domyï¿½lny listy
-template<typename T> List<T>::List()
-{
-	head = tail = nullptr;
-}
->>>>>>> cded7cc56d32b5bc5d0261f6eafee5f87e17792d
+
 
 // Destruktor listy
 template<typename T> List<T>::~List()
@@ -245,7 +238,6 @@ template<typename T> List<T>::~List()
 	}
 }
 
-<<<<<<< HEAD
 template<typename T>
  void List<T>::delete_element(ListNode<T>* elem)
 {
@@ -297,7 +289,7 @@ List<T>* sort_by_airport_name(List<T>* L)
 }
 
 
-=======
+
 // FIXME NOT IMPLEMENTED YET
 
 //template <typename T>
@@ -324,4 +316,4 @@ List<T>* sort_by_airport_name(List<T>* L)
 //	}
 //	return value;
 //}
->>>>>>> cded7cc56d32b5bc5d0261f6eafee5f87e17792d
+
