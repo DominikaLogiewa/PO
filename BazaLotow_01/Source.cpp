@@ -164,11 +164,11 @@ int main()
 				cin.clear();
 				cin >> choice;
 				system("cls");
+				List<Flight*>* COPIED_Flight_list = new List<Flight*>();
+				ListNode<Flight*>* pointer = Flight_list->head;
 				if (choice == 1)
 				{
 					cout << "LIST OF PASSENGER FLIGHTS" << endl << "Sorted by departure airport" << endl << endl;
-					List<Flight*>* COPIED_Flight_list =  new List<Flight*>();
-					ListNode<Flight*>* pointer = Flight_list->head;
 					while (pointer)
 					{			
 						if (pointer->data->getFlight_type() == 'P')
@@ -186,8 +186,7 @@ int main()
 				{
 					cout << "LIST OF CARGO FLIGHTS" << endl << "Sorted by departure airport" << endl << endl;
 					//wybrac same cargo i wypisac 
-					List<Flight*>* COPIED_Flight_list = new List<Flight*>();
-					ListNode<Flight*>* pointer = Flight_list->head;
+
 					while (pointer)
 					{
 						if (pointer->data->getFlight_type() == 'C')
@@ -214,7 +213,91 @@ int main()
 			}
 			system("pause");
 			continue;
-		case 4:
+		/*case 4:
+		{
+			int choice;
+			char type;
+			Airport dummy;
+			cout << "Are you interested in [C]cargo or [P] passenger flights?[C]\[P]" << endl;
+			cin.clear();
+			cin >> type;
+			List<Flight*>* COPIED_Flight_list = new List<Flight*>();
+			ListNode<Flight*>* pointer = Flight_list->head;
+			if (type == 'C')
+			{
+				while (pointer)
+				{
+					if (pointer->data->getFlight_type() == 'C')
+					{
+						Cargo_flight* pointer2 = (Cargo_flight*)pointer->data;
+						Cargo_flight dummy(*pointer2);
+						pointer->data->getId() == -1 ? NULL : COPIED_Flight_list->addElement(new Cargo_flight(dummy));
+					}
+					pointer = pointer->nextNode;
+				}
+			}
+			else
+			{
+				while (pointer)
+				{
+					if (pointer->data->getFlight_type() == 'P')
+					{
+						Passenger_flight* pointer2 = (Passenger_flight*)pointer->data;
+						Passenger_flight dummy(*pointer2);
+						pointer->data->getId() == -1 ? NULL : COPIED_Flight_list->addElement(new Passenger_flight(dummy));
+					}
+					pointer = pointer->nextNode;
+				}
+			}
+			if (COPIED_Flight_list->isEmpty())
+			{
+				cout << "Currently there are no flights of desired type." << endl;
+				break;
+			}
+			while (1)
+			{
+				
+				cout << "What airport would you like to fly from?" << endl << " COUNTRY: \t" << endl;
+				string name, country;
+				cin.clear();
+				cin >> country;
+				cout << "AIRPORT NAME:\t" << endl;
+				cin.clear();
+				cin >> name;
+				dummy.setId();
+				dummy.setCountry(country);
+				dummy.setName(name);
+				Airport* pointer = Airport_list->findElement(dummy);
+				while (pointer == NULL)
+				{
+					cin.clear();
+					cout << "No such airport has been found. Would you like to [1]try again or [2]go back to main menu?" << endl;
+					cin >> choice;
+					if (choice == 1)
+						continue;
+					else if (choice == 2)
+						break;
+					else
+					{
+						while (choice != 2 && choice != 1)
+						{
+							cout << "Wrong input. Try again" << endl;
+							continue;
+						}
+					}
+				}
+			}
+			ListNode<Flight*>* pointer2 = COPIED_Flight_list->head;
+			while (pointer)
+			{
+				if (pointer->getData()->getDeparture() == dummy && pointer->getData()->getFlight_type()==type)
+				{
+					
+				}
+				else pointer = pointer->nextNode;
+			}
+
+		}*/
 		case 5:
 		{
 			string country, airport_name;

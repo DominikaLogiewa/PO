@@ -151,7 +151,7 @@ template<typename T> T* List<T>::findElement(T element)
 	}
 	return NULL;
 }
-//////////////////////////////////////////////////////////////////////////////////////////////////////
+
 // Usuni�cie pierwszego elementu z listy i zwr�cenie go
 template<typename T> T List<T>::popFirst()
 {
@@ -299,31 +299,4 @@ template<typename T> void List<T>::delete_element(ListNode<T>* elem)
 		delete del2;
 	}
 }
-
-// FIXME NOT IMPLEMENTED YET
-
-//template <typename T>
-//void List<T>::copy_list(List<T>* obj)
-//{
-//	ListNode<T>* pointer = obj->head;
-//	while (pointer)
-//	{
-//		if (pointer->data->flight_type == 'P')
-//		{
-//			Passenger_flight dummy = Passenger_flight((Passenger_flight)pointer->data);
-////			dummy.setDeparture(AirportList->findElement(dep));
-////			dummy.setDestination(AirportList->findElement(dest));
-//			dummy.id == -1 ? NULL : value->addElement(new Passenger_flight(pointer->data));
-//		}
-//		else if (flightType == 'C')
-//		{
-//			Cargo_flight dummy = Cargo_flight(pointer->data);
-////			dummy.setDeparture(AirportList->findElement(dep));
-////			dummy.setDestination(AirportList->findElement(dest));
-//			dummy.id == -1 ? NULL : value->addElement(new Cargo_flight(pointer->data));
-//		}
-//		pointer = pointer->nextNode;
-//	}
-//	return value;
-//}
 
