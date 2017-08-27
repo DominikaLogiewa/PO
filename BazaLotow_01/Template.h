@@ -34,7 +34,7 @@ private:
 	T data;
 	ListNode* nextNode;
 public:
-	friend  void List<T>::delete_element(ListNode<T>* elem);
+//	friend  void List<T>::delete_element(ListNode<T>* elem);
 	friend class List<T>;
 	T getData();
 	ListNode(T);
@@ -55,18 +55,17 @@ template<typename T> class List {
 
 private:
     friend int main();
-    friend List <Flight* > sort_FLIGHTS_by_airport(List<Flight*> FlightList);
     ListNode<T>* head;
     ListNode<T>* tail;
     void insertBefore(T);
     void insertBehind(T);
-    void copy_sort_by_airport_name(List<T>* L);
+	List<T>* sort_by_airport_name(List<T>* L);
+	void delete_element(ListNode<T>* elem);
     void _print(true_type);
     void _print(false_type);
 
 public:
     void copy_list(List<T>* obj);
-	void delete_element(ListNode<T>* elem);
     // check for head to see if list is empty
     bool isEmpty()
     {
@@ -257,7 +256,6 @@ template<typename T>
 		tail = head;
 		while (tail->nextNode)
 		{
-		
 			tail = tail->nextNode;
 		}
 		delete del;
@@ -282,7 +280,7 @@ List<T>* List<T>:: sort_by_airport_name(List<T>* L)
 	while (search_pointer)
 	{
 		//pionter stays at the minumum value, search_pointer is gonna go through the list
-		if (pointer->getData()->getDeparture().name.compare(search_pointer->getData()->getDeparture().name) > 0)
+		if (pointer->getData()->getDeparture().getName().compare(search_pointer->getData()->getDeparture().getName()) > 0)
 		{
 			pointer = search_pointer;
 		}
