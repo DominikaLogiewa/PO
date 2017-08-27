@@ -18,7 +18,7 @@
     <ClInclude Include="Airport.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Cargo_flight.h">
+    <ClInclude Include="CargoFlight.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Flight.h">
@@ -30,7 +30,7 @@
     <ClInclude Include="myOwnTimeStruct.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Passenger_flight.h">
+    <ClInclude Include="PassengerFlight.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Template.h">
@@ -41,13 +41,13 @@
     <ClCompile Include="Airport.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Cargo_flight.cpp">
+    <ClCompile Include="CargoFlight.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Flight.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Passenger_flight.cpp">
+    <ClCompile Include="PassengerFlight.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source.cpp">

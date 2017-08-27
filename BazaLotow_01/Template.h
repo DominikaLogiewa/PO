@@ -66,7 +66,7 @@ private:
 
 public:
     void copy_list(List<T>* obj);
-
+	void delete_element(ListNode<T>* elem);
     // check for head to see if list is empty
     bool isEmpty()
     {
@@ -245,16 +245,18 @@ template<typename T>
 		&& (elem->getData()->getDeparture().country.compare(head>getData()->getDeparture().country) == 0))
 	{
 		popFirst();
-		return;
+		return ;
 	}
 	ListNode<T>* del = head;
 	else if (elem == tail && (elem->getData()->getDeparture().name.compare(head > getData()->getDeparture().name) == 0)
 		&& (elem->getData()->getDeparture().country.compare(head-> getData()->getDeparture().country) == 0))
 	{
+	
 		del = tail;
 		tail = head;
 		while (tail->nextNode)
 		{
+		
 			tail = tail->nextNode;
 		}
 		delete del;
