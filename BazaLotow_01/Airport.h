@@ -3,9 +3,16 @@
 class Airport
 {
 	static long int seed;
+
+	// unikatowy identyfikator
 	int id;
+
+	// nazwa lotniska
 	string name;
+
+	// kraj w ktorym the lotnisko jest
 	string country;
+
 public:
 	Airport(int id, string name, string country);
 	Airport();
@@ -23,6 +30,9 @@ public:
 	void setName(string name);
 	string getCountry();
 	void setCountry(string country);
+
+	// operator overloading for: >, <, <=, >=, ==
+
 	bool operator>(Airport& r) {
 		if (country.compare(r.country)>0) return true; else return false;
 	};
@@ -38,6 +48,7 @@ public:
 	bool operator==(Airport& r) {
 		if (country.compare(r.country) == 0 && name.compare(r.name) == 0) return true; else return false;
 	};
+
 	Airport& operator=(Airport& r) {
 		id = r.id;
 		name = r.name;

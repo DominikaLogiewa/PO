@@ -1,8 +1,6 @@
 #include "Includes.h"
 
-Flight::Flight()
-{
-}
+Flight::Flight() {}
 
 Flight::Flight(Flight & obj)
 {
@@ -18,11 +16,10 @@ Flight::Flight(Flight & obj)
 	this->flight_type = obj.flight_type;
 }
 
-Flight::~Flight()
-{
-}
+Flight::~Flight() {}
 
-Flight::Flight(int id, Airport* departure, Airport* destination, int  year, int month, int day, int hour, int min, int lenght, char type)
+Flight::Flight(int id, Airport* departure, Airport* destination,
+			   int  year, int month, int day, int hour, int min, int lenght, char type)
 {
 	this->id = id;
 	this->departure = departure;
@@ -46,6 +43,8 @@ string Flight::ToString()
 	str = oss.str();
 	return str;
 }
+
+// getters and stters
 
 long int Flight::getId()
 {
@@ -85,7 +84,7 @@ myOwnTimeStruct Flight::getDep_time()
 void Flight::setDep_time(int y, int m, int d, int h, int min)
 {
 	if ((y > 1950 && y < 2100) &&
-		(	//warunmek na lata przestepne............<3
+		(	// warunek na lata przestepne... <3
 		(m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12) && (d > 0 && d < 32)
 			||
 			(m == 3 || m == 6 || m == 9 || m == 11) && (d > 0 && d < 31)
@@ -102,6 +101,7 @@ void Flight::setDep_time(int y, int m, int d, int h, int min)
 		dep_time.hour = h;
 		this->dep_time.min = min;
 	}
+
 	else
 	{
 		cout << "Wrong data given. Default values have been set." << endl;
@@ -135,9 +135,12 @@ void Flight::setLenght_min(int param)
 	}
 	length_min = param;
 }
+
 void Flight::setFlight_type(char type)
 {
-	if (type == 'P' || type == 'C') flight_type = type;
+	if (type == 'P' || type == 'C')
+		flight_type = type;
+
 	else
 	{
 		cout << "Wrong type value. Default set..." << endl;

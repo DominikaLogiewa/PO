@@ -1,7 +1,9 @@
 #pragma once
 
-// Sprawdzajka czy dzia³amy na zmiennej lub obiekcie czy wskaŸniku na takowy
-// Wykorzystane przy drukowaniu na ekran elementów listy
+// FIXME not implemented yet
+
+// Sprawdzajka czy dziaï¿½amy na zmiennej lub obiekcie czy wskaï¿½niku na takowy
+// Wykorzystane przy drukowaniu na ekran elementï¿½w listy
 //template<typename T>
 //struct is_Pointer
 //{
@@ -21,12 +23,10 @@
 //}
 
 // Deklaracja istnienia List
-template<typename T>
-class List;
+template<typename T> class List;
 
-// Pojedynczy element listy (szablon spowodowany potrzeb¹ wskaŸnika na nastêpny element listy)
-template<typename T>
-class ListNode
+// Pojedynczy element listy (szablon spowodowany potrzebï¿½ wskaï¿½nika na nastï¿½pny element listy)
+template<typename T> class ListNode
 {
 private:
 	friend class List<T>;
@@ -40,8 +40,7 @@ public:
 };
 
 // Konstruktor elementu listy
-template<typename T>
-ListNode<T>::ListNode(T data)
+template<typename T> ListNode<T>::ListNode(T data)
 {
 	friend main();
 	this->data = data;
@@ -49,12 +48,11 @@ ListNode<T>::ListNode(T data)
 }
 
 // Getter :P
-template<typename T>
-T ListNode<T>::getData() { return data; }
+template<typename T> T ListNode<T>::getData() { return data; }
 
 // Definicja szablonu listy - w razie potrzeby do rozbudowania
-template<typename T>
-class List {
+template<typename T> class List {
+
 private:
 	friend main();
 	friend List <Flight* > sort_FLIGHTS_by_airport(List<Flight*> FlightList);
@@ -65,13 +63,19 @@ private:
 	void copy_sort_by_airport_name(List<T>* L);
 	void _print(true_type);
 	void _print(false_type);
+
 public:
 	void copy_list(List<T>* obj);
+
+    // check for head to see if list is empty
 	bool isEmpty()
 	{
-		if (head == nullptr && tail == nullptr)			return 1;
+		if (head == nullptr)
+            return 1;
+
 		else return 0;
 	};
+
 	void addElement(T);
 	T* findElement(T);
 	T popFirst();
@@ -80,11 +84,12 @@ public:
 	~List();
 };
 
-// Wstawianie elementu na pocz¹tek listy
-template<typename T>
-void List<T>::insertBefore(T data)
+// Wstawianie elementu na poczï¿½tek listy
+template<typename T> void List<T>::insertBefore(T data)
 {
-	if (isEmpty())		head = tail = new ListNode<T>(data);
+	if (isEmpty())
+        head = tail = new ListNode<T>(data);
+
 	else
 	{
 		ListNode<T>* newptr = new ListNode<T>(data);
@@ -93,11 +98,11 @@ void List<T>::insertBefore(T data)
 	}
 }
 
-// Wstawianie elementu na koñcu listy
-template<typename T>
-void List<T>::insertBehind(T data)
+// Wstawianie elementu na koï¿½cu listy
+template<typename T> void List<T>::insertBehind(T data)
 {
 	if (isEmpty()) head = tail = new ListNode<T>(data);
+
 	else
 	{
 		tail->nextNode = new ListNode<T>(data);
@@ -106,21 +111,25 @@ void List<T>::insertBehind(T data)
 }
 
 
+// Dodawanie elementu w odpowiadajï¿½cym mu miejscu (sortowane rosnï¿½co)
 
-
-// Dodawanie elementu w odpowiadaj¹cym mu miejscu (sortowane rosn¹co)
-
-template<typename T>
-void List<T>::addElement(T data)
+template<typename T> void List<T>::addElement(T data)
 {
-	if (isEmpty())		 head = tail = new ListNode<T>(data);
+	if (isEmpty())
+        head = tail = new ListNode<T>(data);
+
 	else
 	{
-		if (data < head->data)		 insertBefore(data);
-		else if (data >= tail->data) insertBehind(data);
+		if (data < head->data)
+            insertBefore(data);
+
+		else if (data >= tail->data)
+            insertBehind(data);
+
 		else
 		{
 			ListNode<T>* pointer = head;
+
 			while (pointer != tail)
 			{
 				if (data >= pointer->data && data < pointer->nextNode->data)
@@ -136,9 +145,8 @@ void List<T>::addElement(T data)
 	}
 }
 
-// Sprawdzenie czy podany element znajduje siê na liœcie
-template<typename T>
-T* List<T>::findElement(T element)
+// Sprawdzenie czy podany element znajduje siï¿½ na liï¿½cie
+template<typename T> T* List<T>::findElement(T element)
 {
 	ListNode<T>* pointer = head;
 	while (pointer)
@@ -149,9 +157,8 @@ T* List<T>::findElement(T element)
 	return NULL;
 }
 
-// Usuniêcie pierwszego elementu z listy i zwrócenie go
-template<typename T>
-T List<T>::popFirst()
+// Usuniï¿½cie pierwszego elementu z listy i zwrï¿½cenie go
+template<typename T> T List<T>::popFirst()
 {
 	ListNode<T> value = *head;
 	ListNode<T>* del = head;
@@ -161,17 +168,17 @@ T List<T>::popFirst()
 	return value.getData();
 }
 
-// Wydrukowanie zawartoœci listy
-template<typename T>
-void List<T>::print()
+// Wydrukowanie zawartoï¿½ci listy
+template<typename T> void List<T>::print()
 {
 	_print(std::is_pointer<T>());
 }
 
-template<typename T>
-void List<T>::_print(std::true_type)
+template<typename T> void List<T>::_print(std::true_type)
 {
-	if (isEmpty()) cout << "List empty" << endl;
+	if (isEmpty())
+        cout << "List empty" << endl;
+
 	else
 	{
 		ListNode<T>* pointer = head;
@@ -185,10 +192,11 @@ void List<T>::_print(std::true_type)
 	}
 }
 
-template<typename T>
-void List<T>::_print(std::false_type)
+template<typename T> void List<T>::_print(std::false_type)
 {
-	if (isEmpty()) cout << "List empty" << endl;
+	if (isEmpty())
+        cout << "List empty" << endl;
+
 	else
 	{
 		ListNode<T>* pointer = head;
@@ -202,13 +210,14 @@ void List<T>::_print(std::false_type)
 	}
 }
 
-// Konstruktor domyœlny listy
-template<typename T>
-List<T>::List() { head = tail = nullptr; }
+// Konstruktor domyï¿½lny listy
+template<typename T> List<T>::List()
+{
+	head = tail = nullptr;
+}
 
 // Destruktor listy
-template<typename T>
-List<T>::~List()
+template<typename T> List<T>::~List()
 {
 	if (!isEmpty())
 	{
@@ -222,6 +231,9 @@ List<T>::~List()
 		}
 	}
 }
+
+// FIXME NOT IMPLEMENTED YET
+
 //template <typename T>
 //void List<T>::copy_list(List<T>* obj)
 //{

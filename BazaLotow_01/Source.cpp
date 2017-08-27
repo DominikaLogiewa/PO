@@ -1,5 +1,7 @@
 #include "Includes.h"
 
+// FIXME not implemented yet
+
 //List <Flight* > sort_FLIGHTS_by_airport(List<Flight*> FlightList)
 //{
 //		List<Flight*> FlightList_2;
@@ -55,15 +57,17 @@ List<Flight*>* loadFlights(List<Airport>* AirportList)
 	for (int i = 0; i < 4; i++)
 	{
 		string myLovelyLookingHeaders;
-		getline(db, myLovelyLookingHeaders); // Pozbawiamy siê linii nag³ówkowej
+		getline(db, myLovelyLookingHeaders); // Pozbawiamy siï¿½ linii nagï¿½ï¿½wkowej
 	}
 	while (!db.eof())
 	{
 		Airport dep, dest;
 		char flightType = 0;
 		db >> flightType;
+
 		if (flightType == 'P')
 		{
+            // FIXME
 			Passenger_flight dummy;
 			dummy.flight_type = 'P';
 			db >> dummy.id >> dep.name >> dep.country >> dest.name >> dest.country >> dummy.dep_time.year >> dummy.dep_time.mon >> dummy.dep_time.day >> dummy.dep_time.hour >> dummy.dep_time.min >> dummy.length_min >> dummy.ticket_price;
@@ -72,8 +76,10 @@ List<Flight*>* loadFlights(List<Airport>* AirportList)
 			dummy.setDestination(AirportList->findElement(dest));
 			dummy.id == -1 ? NULL : value->addElement(new Passenger_flight(dummy));
 		}
+
 		else if (flightType == 'C')
 		{
+            // FIXME
 			Cargo_flight dummy;
 			dummy.flight_type = 'C';
 			db >> dummy.id >> dep.name >> dep.country >> dest.name >> dest.country >> dummy.dep_time.year >> dummy.dep_time.mon >> dummy.dep_time.day >> dummy.dep_time.hour >> dummy.dep_time.min >> dummy.length_min >> dummy.price_per_kg;
@@ -81,12 +87,12 @@ List<Flight*>* loadFlights(List<Airport>* AirportList)
 			dummy.setDestination(AirportList->findElement(dest));
 			dummy.id == -1 ? NULL : value->addElement(new Cargo_flight(dummy));
 		}
-		else if (flightType == '\0')
+
+		else if (flightType == '\0') { ; }
+
+        else
 		{
-			;
-		}
-		else
-		{
+            // FIXME
 			cout << "Database corrupted. Incorrect Flight Type Data. Aborting." << endl;
 			std::system("pause");
 			exit(0);
@@ -97,11 +103,17 @@ List<Flight*>* loadFlights(List<Airport>* AirportList)
 
 int main()
 {
-	std::system("title FLIGHTS"); // Ustawienie nazwy okna konsoli
-	HWND console = GetConsoleWindow(); // Dane o oknie konsoli
-	RECT r; // Prostok¹cik?
+    // Ustawienie nazwy okna konsoli
+	std::system("title FLIGHTS");
+
+    // Dane o oknie konsoli
+	HWND console = GetConsoleWindow();
+
+    // Prostokï¿½cik?
+	RECT r;
 	GetWindowRect(console, &r);
 	MoveWindow(console, r.left, r.top, 1200, 900, TRUE); // Ustawiamy wymiary okienka konsoli
+
 	cout << "Strating program..." << endl;
 	cout << "Loading ariport dababase file ..." << endl;
 
@@ -122,17 +134,21 @@ int main()
 	else 		cout << "Airport database successfully loaded!" << endl;
 
 	List<Flight*>* Flight_list = loadFlights(Airport_list);
+
 	if (Flight_list->isEmpty())
 	{
 		cout << "Flights database file is empty ora has not been created. Adding a new, empty database for flights..." << endl;
 		FILE* db = NULL;
 		db = fopen("flights.txt", "w");
+
+        // plik z dana bazych nie zostal znaleziony
 		if (db == NULL)
 		{
 			cout << "Couldn't create new database on your disk. Without it the program will nor run properly. Exiting..." << endl;
 			std::system("pause");
 			exit(0);
 		}
+
 		cout << "flights database file created (\"airports.txt\")" << endl;
 	}
 	else 		cout << "Flights database successfully loaded!" << endl;
@@ -172,6 +188,7 @@ int main()
 				system("cls");
 				if (choice == 1)
 				{
+                    // FIXME NOT IMPLEMENTED YET
 					cout << "LIST OF PASSENGER FLIGHTS" << endl << "Sorted by departure airport" << endl << endl;
 					//wybrac same pasazerskie i wypisac 
 					/////////////////////////////////////////////////////////////////////////
@@ -188,6 +205,8 @@ int main()
 				}
 				else if (choice == 2)
 				{
+					// FIXME NOT IMPLEMENTED YET
+
 					cout << "LIST OF CARGO FLIGHTS" << endl << "Sorted by departure airport" << endl << endl;
 					//wybrac same cargo i wypisac 
 
@@ -320,10 +339,6 @@ int main()
 			exit(1);
 		}
 	}
-
-
-
-
 
 	Airport_list->print();
 	Flight_list->print();
