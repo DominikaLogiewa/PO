@@ -55,6 +55,7 @@ template<typename T> class List {
 private:
     friend int main();
 	void delete_element(ListNode<T>* elem);
+	List<Flight*>* copyt_list_of_type();
     ListNode<T>* head;
     ListNode<T>* tail;
     void insertBefore(T);
@@ -62,6 +63,7 @@ private:
 	List<T>* sort_by_airport_name(List<T>* L);
     void _print(true_type);
     void _print(false_type);
+	
 
 public:
     // check for head to see if list is empty
@@ -297,6 +299,60 @@ template<typename T> void List<T>::delete_element(ListNode<T>* elem)
 			del=del->nextNode;
 		del->nextNode = del2->nextNode;
 		delete del2;
+	}
+}
+template<typename T>
+List<Flight*>* List<T>:: copyt_list_of_type()
+{
+	int choice = -1;
+	cout << "Would you like to view [1] passenger or [2]cargo flights?" << endl;
+	cin.clear();
+	cin.ignore();
+	cin >> choice;
+	system("cls");
+	List<Flight*>* COPIED_Flight_list = new List<Flight*>();
+	ListNode<Flight*>* pointer = head;
+	if (choice == 1)
+	{
+		cout << "LIST OF PASSENGER FLIGHTS" << endl << "Sorted by departure airport" << endl << endl;
+		while (pointer)
+		{
+			if (pointer->data->getFlight_type() == 'P')
+			{
+				Passenger_flight* pointer2 = (Passenger_flight*)pointer->data;
+				Passenger_flight dummy(*pointer2);
+				pointer->data->getId() == -1 ? NULL : COPIED_Flight_list->addElement(new Passenger_flight(dummy));
+			}
+			pointer = pointer->nextNode;
+		}
+		return COPIED_Flight_list;
+	}
+	else if (choice == 2)
+	{
+		cout << "LIST OF CARGO FLIGHTS" << endl << "Sorted by departure airport" << endl << endl;
+
+		while (pointer)
+		{
+			if (pointer->data->getFlight_type() == 'C')
+			{
+				Cargo_flight* pointer2 = (Cargo_flight*)pointer->data;
+				Cargo_flight dummy(*pointer2);
+				pointer->data->getId() == -1 ? NULL : COPIED_Flight_list->addElement(new Cargo_flight(dummy));
+			}
+			pointer = pointer->nextNode;
+		}
+		return COPIED_Flight_list;
+	}
+	else
+	{
+		while (choice != 2 && choice != 1)
+		{
+			cout << "Wrong input. Try again" << endl;
+			cout << "Would you like to view [1] passenger or [2]cargo flights?" << endl;
+			cin.clear();
+			cin.ignore();
+			cin >> choice;
+		}
 	}
 }
 

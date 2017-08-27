@@ -144,8 +144,8 @@ int main()
 		cout << "[5] View flights from a given airport" << endl;
 		cout << "[6] Find the shortest route" << endl;
 		cout << "[7] Exit" << endl;
-		cin.clear();
 		cin >> option;
+		cin.clear();
 		switch (option)
 		{
 		case 1:
@@ -156,99 +156,23 @@ int main()
 			continue;
 		case 2:
 		case 3:
+		{
 			while (1)
 			{
-				int choice = -1;
-			//	sort_FLIGHTS_by_airport(*Flight_list);
-				cout << "Would you like to view [1] passenger or [2]cargo flights?" << endl;
-				cin.clear();
-				cin >> choice;
-				system("cls");
-				List<Flight*>* COPIED_Flight_list = new List<Flight*>();
-				ListNode<Flight*>* pointer = Flight_list->head;
-				if (choice == 1)
-				{
-					cout << "LIST OF PASSENGER FLIGHTS" << endl << "Sorted by departure airport" << endl << endl;
-					while (pointer)
-					{			
-						if (pointer->data->getFlight_type() == 'P')
-						{
-							Passenger_flight* pointer2 = (Passenger_flight*)pointer->data;
-							Passenger_flight dummy(*pointer2);
-							pointer->data->getId() == -1 ? NULL : COPIED_Flight_list->addElement(new Passenger_flight(dummy));
-						}
-						pointer = pointer->nextNode;
-					}
-					COPIED_Flight_list->sort_by_airport_name(COPIED_Flight_list);
-					break;
-				}
-				else if (choice == 2)
-				{
-					cout << "LIST OF CARGO FLIGHTS" << endl << "Sorted by departure airport" << endl << endl;
-					//wybrac same cargo i wypisac 
-
-					while (pointer)
-					{
-						if (pointer->data->getFlight_type() == 'C')
-						{
-							Cargo_flight* pointer2 = (Cargo_flight*)pointer->data;
-							Cargo_flight dummy(*pointer2);
-							pointer->data->getId() == -1 ? NULL : COPIED_Flight_list->addElement(new Cargo_flight(dummy));
-						}
-						pointer = pointer->nextNode;
-					}
-					COPIED_Flight_list->sort_by_airport_name(COPIED_Flight_list);
-					break;
-				}
-				else
-				{
-					while (choice != 2 && choice != 1)
-					{
-						cout << "Wrong input. Try again" << endl;
-						cout << "Would you like to view [1] passenger or [2]cargo flights?" << endl;
-						cin.clear();
-						cin >> choice;
-					}
-				}
+				List<Flight*>* COPIED_Flight_list = Flight_list->copyt_list_of_type();
+				COPIED_Flight_list->sort_by_airport_name(COPIED_Flight_list);
+				system("pause");
+				break;
 			}
-			system("pause");
-			continue;
-		/*case 4:
+		}
+		break;
+		//////////////////////////massive bugs down below///////////////////////////////
+		case 4:
 		{
 			int choice;
 			char type;
 			Airport dummy;
-			cout << "Are you interested in [C]cargo or [P] passenger flights?[C]\[P]" << endl;
-			cin.clear();
-			cin >> type;
-			List<Flight*>* COPIED_Flight_list = new List<Flight*>();
-			ListNode<Flight*>* pointer = Flight_list->head;
-			if (type == 'C')
-			{
-				while (pointer)
-				{
-					if (pointer->data->getFlight_type() == 'C')
-					{
-						Cargo_flight* pointer2 = (Cargo_flight*)pointer->data;
-						Cargo_flight dummy(*pointer2);
-						pointer->data->getId() == -1 ? NULL : COPIED_Flight_list->addElement(new Cargo_flight(dummy));
-					}
-					pointer = pointer->nextNode;
-				}
-			}
-			else
-			{
-				while (pointer)
-				{
-					if (pointer->data->getFlight_type() == 'P')
-					{
-						Passenger_flight* pointer2 = (Passenger_flight*)pointer->data;
-						Passenger_flight dummy(*pointer2);
-						pointer->data->getId() == -1 ? NULL : COPIED_Flight_list->addElement(new Passenger_flight(dummy));
-					}
-					pointer = pointer->nextNode;
-				}
-			}
+			List<Flight*>* COPIED_Flight_list = Flight_list->copyt_list_of_type();
 			if (COPIED_Flight_list->isEmpty())
 			{
 				cout << "Currently there are no flights of desired type." << endl;
@@ -256,7 +180,6 @@ int main()
 			}
 			while (1)
 			{
-				
 				cout << "What airport would you like to fly from?" << endl << " COUNTRY: \t" << endl;
 				string name, country;
 				cin.clear();
@@ -274,30 +197,30 @@ int main()
 					cout << "No such airport has been found. Would you like to [1]try again or [2]go back to main menu?" << endl;
 					cin >> choice;
 					if (choice == 1)
-						continue;
-					else if (choice == 2)
-						break;
+						break;						
 					else
 					{
 						while (choice != 2 && choice != 1)
 						{
 							cout << "Wrong input. Try again" << endl;
-							continue;
+							break;
 						}
 					}
 				}
 			}
 			ListNode<Flight*>* pointer2 = COPIED_Flight_list->head;
-			while (pointer)
+			while (pointer2)
 			{
-				if (pointer->getData()->getDeparture() == dummy && pointer->getData()->getFlight_type()==type)
+				//do type AND airport match
+				if (pointer2->getData()->getDeparture() == dummy 
+					&& pointer2->getData()->getFlight_type()==COPIED_Flight_list->head->getData()->getFlight_type())
 				{
-					
+					cout << pointer2->getData()->ToString() << endl;
 				}
-				else pointer = pointer->nextNode;
+				 pointer2 = pointer2->nextNode;
 			}
 
-		}*/
+		}
 		case 5:
 		{
 			string country, airport_name;
@@ -311,6 +234,7 @@ int main()
 				cin >> airport_name;
 				cout << "Type in the country" << endl;
 				cin.clear();
+				cin.ignore();
 				cin >> country;
 
 
@@ -334,6 +258,7 @@ int main()
 							cout << "Wrong input. Try again:" << endl;
 							cout << "Would you like to try another airport? [1]Yes\[2]No: " << endl;
 							cin.clear();
+							cin.ignore();
 							cin >> choice;
 						}
 					}
@@ -369,6 +294,7 @@ int main()
 				cin >> airport_name_2;
 				cout << "Type in the destination country" << endl;
 				cin.clear();
+				cin.ignore();
 				cin >> country_2;
 				transform(country_1.begin(), country_1.end(), country_1.begin(), ::toupper);
 				transform(airport_name_1.begin(), airport_name_1.end(), airport_name_1.begin(), ::tolower);
@@ -382,6 +308,7 @@ int main()
 				{
 					cout << "One of the airports you're looking for has not been found. Would you like to search again? [1]Yes\[2]No" << endl;
 					cin.clear();
+					cin.ignore();
 					cin >> choice;
 					if (choice == 1) continue;
 					else if (choice == 2) break;
@@ -392,6 +319,7 @@ int main()
 							cout << "Wrong input. Try again" << endl;
 							cout << "One of the airports you're looking for has not been found. Would you like to search again? [1]Yes\[2]No" << endl;
 							cin.clear();
+							cin.ignore();
 							cin >> choice;
 						}
 					}
