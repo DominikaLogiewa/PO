@@ -217,7 +217,7 @@ template<typename T> void List<T>::_print(std::false_type)
 }
 
 
-// Konstruktor domyœlny listy
+// Konstruktor domyï¿½lny listy
 template<typename T>
 List<T>::List() { head = tail = nullptr; }
 
@@ -251,12 +251,12 @@ template<typename T>
 	else if (elem == tail && (elem->getData()->getDeparture().name.compare(head > getData()->getDeparture().name) == 0)
 		&& (elem->getData()->getDeparture().country.compare(head-> getData()->getDeparture().country) == 0))
 	{
-	
+
 		del = tail;
 		tail = head;
 		while (tail->nextNode)
 		{
-		
+
 			tail = tail->nextNode;
 		}
 		delete del;

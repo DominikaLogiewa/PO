@@ -1,7 +1,7 @@
 #include "Includes.h"
 
-
 Passenger_flight::Passenger_flight() : Flight(), ticket_price(0) {}
+
 Passenger_flight::Passenger_flight(Passenger_flight & obj): Flight(obj)
 {
 	ticket_price = obj.ticket_price;
@@ -27,6 +27,7 @@ void Passenger_flight::setTicket_price(float price)
 {
 	if(price > 0)
 		ticket_price = price;
+
 	else
 	{
 		cout << "Wrong value for ticket price. Default value set" << endl;
