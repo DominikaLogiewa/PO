@@ -22,5 +22,5 @@ class Passenger_flight;
 #include "myOwnTimeStruct.h"
 #include "Airport.h"
 #include "Flight.h"
-#include "Cargo_flight.h"
-#include "Passenger_flight.h"
+#include "CargoFlight.h"
+#include "PassengerFlight.h"

@@ -7,15 +7,18 @@ struct myOwnTimeStruct
 	int mon;
 	int year;
 
-
+    // print time to the screen
 	void printTime()
 	{
 		cout << day << "/" << mon << "/" << year  ;
 	}
+
+	// print time to the screen
 	void printDate()
 	{
 		cout << hour << ":" << min;
 	}
+
 	string TimeToString()
 	{
 		ostringstream oss;
@@ -23,6 +26,7 @@ struct myOwnTimeStruct
 		string str = oss.str();
 		return str;
 	}
+
 	string DateToString()
 	{
 		ostringstream oss;
@@ -30,7 +34,8 @@ struct myOwnTimeStruct
 		string str = oss.str();
 		return str;
 	}
-	// do structa
+
+	// calculate a numeric value for an instance of this struct
 	long long int GetHash() {
 		long long int value;
 		value += year * 100000000;
@@ -40,6 +45,4 @@ struct myOwnTimeStruct
 		value += min;
 		return value;
 	}
-
-	
 };

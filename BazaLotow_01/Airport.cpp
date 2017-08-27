@@ -9,9 +9,7 @@ Airport::Airport(int ID, string NAME, string COUNTRY)
 }
 Airport::Airport() : id(-1), name("DEFAULT"), country("DEFAULT") {};
 
-Airport::~Airport()
-{
-}
+Airport::~Airport() {}
 
 string Airport::ToString()
 {
@@ -56,4 +54,3 @@ void Airport::setCountry(string country)
 }
 
 long int  Airport::seed = 0;
-
