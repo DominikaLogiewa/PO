@@ -100,7 +100,6 @@ void Flight::setDep_time(int y, int m, int d, int h, int min)
             (m == 2 && (d > 0 && d < 29) && (y % 4 == 0 && y % 10 != 0) ||
             (m == 2 && (d > 0 && d < 30) && !(y % 4 == 0 && y % 10 != 0))))
         {
-            // also make sure that hour and min are valid
             // ie 0 =< min < 60  and 0 =< hour < 60
             if ((h >= 0 && h < 24) && (min >= 0 && min < 60))
             {
