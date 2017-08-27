@@ -1,0 +1,12 @@
++-------+-------+---------------+---------------+---------------+---------------+-------+-------+-------+-------+-------+-------+-------+
+|Type	|ID	|Departure 	|Departure 	|Destination 	|Destination	|Year 	|Month 	|Day 	|Hour 	|Min 	|Length |Price	|
+|	|	|Airport   	|Country   	|Airport     	|Country	|	|	|	|	|	|	|	|
++-------+-------+---------------+---------------+---------------+---------------+-------+-------+-------+-------+-------+-------+-------+
+ P	 1	 Radom		 Poland		 Berlin 	 Germany	 2017	 11 	 16 	 22 	 35 	 100  	 550
+ C	 2	 Dublin		 Irleand	 Madrid 	 Spain 		 2017	 1 	 1 	 16 	 00 	 75  	 50
+ P	 3	 Amsterdam	 Netherlands	 Madrid 	 Spain 		 2017	 3 	 11 	 12 	 45 	 60 	 550
+ P	 4	 Lisbon		 Portugal	 Seville	 Spain 		 2017	 2 	 28 	 11 	 40 	 75  	 350
+ C	 5	 Radom		 Poland		 Leipzig 	 Germany 	 2017	 8 	 26 	 15 	 30 	 55  	 250
+ P	 6	 Rotterdam	 Netherlands	 Madrid 	 Spain 		 2017	 12 	 22 	 12 	 55 	 50  	 550
+ C	 7	 Radom		 Poland		 Madrid 	 Spain 		 2017	 5 	 21 	 12 	 00 	 75  	 550
+ P	 8	 Dortmund	 Germany	 Madrid 	 Spain 		 2017	 12 	 23 	 1 	 30 	 85  	 1150

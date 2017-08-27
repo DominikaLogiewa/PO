@@ -1,0 +1,16 @@
+7 Dublin Irleand
+8 Amsterdam Netherlands
+9 Lisbon Portugal
+10 Madrid Spain
+11 Berlin Germany
+12 Seville Spain
+13 Rotterdam Netherlands
+14 Dortmund Germany
+15 Leipzig Germany
+16 Moscow Russia
+17 Riga Latvia
+18 Frankfurt Germany
+19 Tartu Estonia
+20 Athens Greece
+21 Munich Germany
+22 Radom Poland
