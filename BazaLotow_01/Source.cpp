@@ -197,9 +197,20 @@ int main()
 					/////////////////////////////////////////////////////////////////////////
 					/////////////////////////////////////////////////////////////////////////
 					List<Flight*>* COPIED_Flight_list =  new List<Flight*>();
-					COPIED_Flight_list->copy_list(Flight_list);
-					COPIED_Flight_list->print();
+					ListNode<Flight*>* pointer = Flight_list->head;
+					while (pointer)
+					{			
+						if (pointer->data->getFlight_type() == 'P')
+						{
+							Passenger_flight* pointer2 = (Passenger_flight*)pointer->data;
+							Passenger_flight dummy(*pointer2);
+							pointer->data->getId() == -1 ? NULL : COPIED_Flight_list->addElement(new Passenger_flight(dummy));
+						}
 
+						pointer = pointer->nextNode;
+					}
+					COPIED_Flight_list->print();
+				
 
 					break;
 				}
@@ -209,9 +220,19 @@ int main()
 
 					cout << "LIST OF CARGO FLIGHTS" << endl << "Sorted by departure airport" << endl << endl;
 					//wybrac same cargo i wypisac 
-
-
-					break;
+					List<Flight*>* COPIED_Flight_list = new List<Flight*>();
+					ListNode<Flight*>* pointer = Flight_list->head;
+					while (pointer)
+					{
+						if (pointer->data->getFlight_type() == 'C')
+						{
+							Cargo_flight* pointer2 = (Cargo_flight*)pointer->data;
+							Cargo_flight dummy(*pointer2);
+							pointer->data->getId() == -1 ? NULL : COPIED_Flight_list->addElement(new Cargo_flight(dummy));
+						}
+						pointer = pointer->nextNode;
+					}
+					COPIED_Flight_list->print();
 				}
 				else
 				{
