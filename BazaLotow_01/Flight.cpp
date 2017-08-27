@@ -168,4 +168,4 @@ char Flight::getFlight_type()
 	return flight_type;
 }
 
-long int  Flight::seed = 0;
+long int Flight::seed = 0;

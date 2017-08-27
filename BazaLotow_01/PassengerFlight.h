@@ -2,7 +2,9 @@
 
 class Passenger_flight : public Flight
 {
+
 	float ticket_price;
+
 public:
 	Passenger_flight();
 	Passenger_flight(Passenger_flight &obj);

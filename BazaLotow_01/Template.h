@@ -54,34 +54,31 @@ template<typename T> T ListNode<T>::getData() { return data; }
 template<typename T> class List {
 
 private:
-	friend int main();
-	friend List <Flight* > sort_FLIGHTS_by_airport(List<Flight*> FlightList);
-	ListNode<T>* head;
-	ListNode<T>* tail;
-	void insertBefore(T);
-	void insertBehind(T);
-	void copy_sort_by_airport_name(List<T>* L);
-	void _print(true_type);
-	void _print(false_type);
+    friend int main();
+    friend List <Flight* > sort_FLIGHTS_by_airport(List<Flight*> FlightList);
+    ListNode<T>* head;
+    ListNode<T>* tail;
+    void insertBefore(T);
+    void insertBehind(T);
+    void copy_sort_by_airport_name(List<T>* L);
+    void _print(true_type);
+    void _print(false_type);
 
 public:
-	void copy_list(List<T>* obj);
+    void copy_list(List<T>* obj);
 
     // check for head to see if list is empty
-	bool isEmpty()
-	{
-		if (head == nullptr)
-            return 1;
+    bool isEmpty()
+    {
+        return head == nullptr;
+    };
 
-		else return 0;
-	};
-
-	void addElement(T);
-	T* findElement(T);
-	T popFirst();
-	void print();
-	List();
-	~List();
+    void addElement(T);
+    T* findElement(T);
+    T popFirst();
+    void print();
+    List();
+    ~List();
 };
 
 // Wstawianie elementu na pocz�tek listy
@@ -162,8 +159,13 @@ template<typename T> T List<T>::popFirst()
 {
 	ListNode<T> value = *head;
 	ListNode<T>* del = head;
-	if (head == tail) head = tail = nullptr;
-	else head = head->nextNode;
+
+	if (head == tail)
+        head = tail = nullptr;
+
+	else
+        head = head->nextNode;
+
 	delete del;
 	return value.getData();
 }
@@ -183,11 +185,13 @@ template<typename T> void List<T>::_print(std::true_type)
 	{
 		ListNode<T>* pointer = head;
 		cout << "List: \n";
+
 		while (pointer)
 		{
 			cout << pointer->data->ToString() << endl;
 			pointer = pointer->nextNode;
 		}
+
 		cout << endl;
 	}
 }
@@ -201,11 +205,13 @@ template<typename T> void List<T>::_print(std::false_type)
 	{
 		ListNode<T>* pointer = head;
 		cout << "List: \n";
+
 		while (pointer)
 		{
 			cout << pointer->data.ToString() << endl;
 			pointer = pointer->nextNode;
 		}
+
 		cout << endl;
 	}
 }
