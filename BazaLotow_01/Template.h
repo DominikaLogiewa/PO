@@ -30,6 +30,7 @@ class ListNode
 {
 private:
 	friend class List<T>;
+	friend int main();
 	friend List <Flight* >* sort_FLIGHTS_by_airport(List<Flight>* FlightList);
 
 	T data;
@@ -43,7 +44,6 @@ public:
 template<typename T>
 ListNode<T>::ListNode(T data)
 {
-	friend main();
 	this->data = data;
 	nextNode = nullptr;
 }
@@ -56,7 +56,7 @@ T ListNode<T>::getData() { return data; }
 template<typename T>
 class List {
 private:
-	friend main();
+	friend int main();
 	friend List <Flight* > sort_FLIGHTS_by_airport(List<Flight*> FlightList);
 	ListNode<T>* head;
 	ListNode<T>* tail;

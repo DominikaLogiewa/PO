@@ -1,44 +1,11 @@
 ﻿  Source.cpp
-c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\source.cpp(235): warning C4129: '[': unrecognized character escape sequence
-c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\source.cpp(245): warning C4129: '[': unrecognized character escape sequence
-c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\source.cpp(294): warning C4129: '[': unrecognized character escape sequence
-c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\source.cpp(304): warning C4129: '[': unrecognized character escape sequence
+c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\source.cpp(256): warning C4129: '[': unrecognized character escape sequence
+c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\source.cpp(266): warning C4129: '[': unrecognized character escape sequence
+c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\source.cpp(315): warning C4129: '[': unrecognized character escape sequence
+c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\source.cpp(325): warning C4129: '[': unrecognized character escape sequence
 c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\source.cpp(113): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(207): note: see declaration of 'fopen'
 c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\source.cpp(129): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(207): note: see declaration of 'fopen'
-c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\template.h(229): error C2248: 'Flight::flight_type': cannot access private member declared in class 'Flight'
-  c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\flight.h(12): note: see declaration of 'Flight::flight_type'
-  c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\flight.h(5): note: see declaration of 'Flight'
-  c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\template.h(225): note: while compiling class template member function 'void List<Flight *>::copy_list(List<Flight *> *)'
-  c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\source.cpp(183): note: see reference to function template instantiation 'void List<Flight *>::copy_list(List<Flight *> *)' being compiled
-  c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\source.cpp(46): note: see reference to class template instantiation 'List<Flight *>' being compiled
-c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\template.h(231): error C2440: 'type cast': cannot convert from 'Flight *' to 'Passenger_flight'
-  c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\template.h(231): note: No constructor could take the source type, or constructor overload resolution was ambiguous
-c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\template.h(234): error C2248: 'Flight::id': cannot access private member declared in class 'Flight'
-  c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\flight.h(7): note: see declaration of 'Flight::id'
-  c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\flight.h(5): note: see declaration of 'Flight'
-c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\template.h(234): error C2065: 'value': undeclared identifier
-c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\template.h(234): error C2227: left of '->addElement' must point to class/struct/union/generic type
-  c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\template.h(234): note: type is 'unknown-type'
-c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\template.h(234): error C2664: 'Passenger_flight::Passenger_flight(Passenger_flight &)': cannot convert argument 1 from 'Flight *' to 'Passenger_flight &'
-c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\template.h(236): error C2065: 'flightType': undeclared identifier
-c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\template.h(238): error C2440: '<function-style-cast>': cannot convert from 'Flight *' to 'Cargo_flight'
-  c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\template.h(238): note: No constructor could take the source type, or constructor overload resolution was ambiguous
-c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\template.h(241): error C2248: 'Flight::id': cannot access private member declared in class 'Flight'
-  c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\flight.h(7): note: see declaration of 'Flight::id'
-  c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\flight.h(5): note: see declaration of 'Flight'
-c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\template.h(241): error C2065: 'value': undeclared identifier
-c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\template.h(241): error C2227: left of '->addElement' must point to class/struct/union/generic type
-  c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\template.h(241): note: type is 'unknown-type'
-c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\template.h(241): error C2664: 'Cargo_flight::Cargo_flight(Cargo_flight &)': cannot convert argument 1 from 'Flight *' to 'Cargo_flight &'
-c:\users\nikka\documents\visual studio 2017\projects\bazalotow_01\bazalotow_01\template.h(245): error C2065: 'value': undeclared identifier
-  Generating Code...
-  Compiling...
-  Airport.cpp
-  Generating Code...
-  Compiling...
-  Passenger_flight.cpp
-  Flight.cpp
-  Cargo_flight.cpp
-  Generating Code...
+  BazaLotow_01.vcxproj -> C:\Users\Nikka\documents\visual studio 2017\Projects\BazaLotow_01\Debug\BazaLotow_01.exe
+  BazaLotow_01.vcxproj -> C:\Users\Nikka\documents\visual studio 2017\Projects\BazaLotow_01\Debug\BazaLotow_01.pdb (Partial PDB)
