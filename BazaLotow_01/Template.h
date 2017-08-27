@@ -29,13 +29,13 @@ template<typename T>
 class ListNode
 {
 private:
-	friend class List<T>;
 	friend int main();
-	friend List <Flight* >* sort_FLIGHTS_by_airport(List<Flight>* FlightList);
 
 	T data;
 	ListNode* nextNode;
 public:
+	friend  void List<T>::delete_element(ListNode<T>* elem);
+	friend class List<T>;
 	T getData();
 	ListNode(T);
 };
@@ -57,16 +57,16 @@ template<typename T>
 class List {
 private:
 	friend int main();
-	friend List <Flight* > sort_FLIGHTS_by_airport(List<Flight*> FlightList);
 	ListNode<T>* head;
 	ListNode<T>* tail;
 	void insertBefore(T);
 	void insertBehind(T);
-	void copy_sort_by_airport_name(List<T>* L);
 	void _print(true_type);
 	void _print(false_type);
+
 public:
-	void copy_list(List<T>* obj);
+	void delete_element(ListNode<T>* elem);
+	void sort_by_airport_name(List<T>* L);
 	bool isEmpty()
 	{
 		if (head == nullptr && tail == nullptr)			return 1;
@@ -202,6 +202,7 @@ void List<T>::_print(std::false_type)
 	}
 }
 
+
 // Konstruktor domyœlny listy
 template<typename T>
 List<T>::List() { head = tail = nullptr; }
@@ -222,27 +223,55 @@ List<T>::~List()
 		}
 	}
 }
-//template <typename T>
-//void List<T>::copy_list(List<T>* obj)
-//{
-//	ListNode<T>* pointer = obj->head;
-//	while (pointer)
-//	{
-//		if (pointer->data->flight_type == 'P')
-//		{
-//			Passenger_flight dummy = Passenger_flight((Passenger_flight)pointer->data);
-////			dummy.setDeparture(AirportList->findElement(dep));
-////			dummy.setDestination(AirportList->findElement(dest));
-//			dummy.id == -1 ? NULL : value->addElement(new Passenger_flight(pointer->data));
-//		}
-//		else if (flightType == 'C')
-//		{
-//			Cargo_flight dummy = Cargo_flight(pointer->data);
-////			dummy.setDeparture(AirportList->findElement(dep));
-////			dummy.setDestination(AirportList->findElement(dest));
-//			dummy.id == -1 ? NULL : value->addElement(new Cargo_flight(pointer->data));
-//		}
-//		pointer = pointer->nextNode;
-//	}
-//	return value;
-//}
+
+template<typename T>
+ void List<T>::delete_element(ListNode<T>* elem)
+{
+	if (elem == head && (elem->getData()->getDeparture().name.compare(head>getData()->getDeparture().name)==0)
+		&& (elem->getData()->getDeparture().country.compare(head>getData()->getDeparture().country) == 0))
+	{
+		popFirst();
+		return;
+	}
+	ListNode<T>* del = head;
+	else if (elem == tail && (elem->getData()->getDeparture().name.compare(head > getData()->getDeparture().name) == 0)
+		&& (elem->getData()->getDeparture().country.compare(head-> getData()->getDeparture().country) == 0))
+	{
+		del = tail;
+		tail = head;
+		while (tail->nextNode)
+		{
+			tail = tail->nextNode;
+		}
+		delete del;
+	}
+}
+
+template<typename T>
+List<T>* sort_by_airport_name(List<T>* L)
+{
+	if (L == NULL)
+	{
+		cout << "There are no flights of the sort you're looking for. Add some and try again..." << endl;
+		return NULL;
+	}
+	ListNode<Flight*>* pointer = L->head;
+	if (pointer->nextNode == NULL)
+	{
+		cout << pointer->data->ToString();
+		return NULL;
+	}
+	ListNode<Flight*>* search_pointer = L->head;
+	while (search_pointer)
+	{
+		//pionter stays at the minumum value, search_pointer is gonna go through the list
+		if (pointer->getData()->getDeparture().name.compare(search_pointer->getData()->getDeparture().name) > 0)
+		{
+			pointer = search_pointer;
+		}
+		search_pointer = search_pointer->nextNode;
+	}
+	cout << pointer->data->ToString() << endl;
+}
+
+

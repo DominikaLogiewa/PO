@@ -33,6 +33,7 @@ public:
 	// FUNKCJA PSIAPSIӣKA!
 
 	friend List<Flight*>* loadFlights(List<Airport>*);
+	friend class List<Flight>;
 
 	//PRZECIAZENIE OPERATOROW OLABOGA POMOCY!
 
