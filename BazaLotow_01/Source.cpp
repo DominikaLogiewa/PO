@@ -1,27 +1,5 @@
 #include "Includes.h"
 
-// FIXME not implemented yet
-
-//List <Flight* > sort_FLIGHTS_by_airport(List<Flight*> FlightList)
-//{
-//		List<Flight*> FlightList_2;
-//		ListNode <Flight*>* pointer = FlightList.head;
-//		FlightList_2.addElement(pointer->getData());
-//		ListNode <Flight*>* pointer2 = FlightList_2.head;
-//	
-//		while (pointer)
-//		{
-//			if (pointer->getData()->getDeparture().getName().compare((&pointer2).nextNode->getData().getDeparture().getName()) > 1)
-//				FlightList_2.insertBehind(pointer->getData());
-//			else if (pointer.getData().getDeparture().getName().compare(pointer2.nextNode->getData().getDeparture().getName()) <= 1)
-//				FlightList_2.insertBefore(pointer->getData());
-//
-//			pointer = pointer.nextNode;
-//		}
-//		FlightList_2.print();
-//		return FlightList_2;
-//
-//}
 
 List<Airport>* loadAirports()
 {
@@ -188,14 +166,7 @@ int main()
 				system("cls");
 				if (choice == 1)
 				{
-                    // FIXME NOT IMPLEMENTED YET
 					cout << "LIST OF PASSENGER FLIGHTS" << endl << "Sorted by departure airport" << endl << endl;
-					//wybrac same pasazerskie i wypisac 
-					/////////////////////////////////////////////////////////////////////////
-					/////////////////////////////////////////////////////////////////////////
-					//TESTS!!!!!!!!!
-					/////////////////////////////////////////////////////////////////////////
-					/////////////////////////////////////////////////////////////////////////
 					List<Flight*>* COPIED_Flight_list =  new List<Flight*>();
 					ListNode<Flight*>* pointer = Flight_list->head;
 					while (pointer)
@@ -208,19 +179,11 @@ int main()
 						}
 						pointer = pointer->nextNode;
 					}
-					cout << "********************************" << endl;
-					Flight_list->print();
-					cout << "********************************" << endl;
-					COPIED_Flight_list->print();
-					cout << "********************************" << endl;
 					COPIED_Flight_list->sort_by_airport_name(COPIED_Flight_list);
-					//COPIED_Flight_list->print();
 					break;
 				}
 				else if (choice == 2)
 				{
-					// FIXME NOT IMPLEMENTED YET
-
 					cout << "LIST OF CARGO FLIGHTS" << endl << "Sorted by departure airport" << endl << endl;
 					//wybrac same cargo i wypisac 
 					List<Flight*>* COPIED_Flight_list = new List<Flight*>();
@@ -302,7 +265,6 @@ int main()
 					break;
 				}
 			}
-
 		}
 		case 6:
 		{
