@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm> 
+#include <algorithm>
 #include <sstream>
 #include <fstream>
 #include <Windows.h>

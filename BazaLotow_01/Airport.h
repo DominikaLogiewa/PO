@@ -34,10 +34,10 @@ public:
 	// operator overloading for: >, <, <=, >=, ==
 
 	bool operator>(Airport& r) {
-		if (country.compare(r.country)>0) return true; else return false;
+		if (country.compare(r.country) > 0) return true; else return false;
 	};
 	bool operator<(Airport& r) {
-		if (country.compare(r.country)<0) return true; else return false;
+		if (country.compare(r.country) < 0) return true; else return false;
 	};
 	bool operator>=(Airport& r) {
 		if (country.compare(r.country) >= 0) return true; else return false;
@@ -55,6 +55,4 @@ public:
 		country = r.country;
 		return *this;
 	};
-
 };
-

@@ -1,34 +1,29 @@
 #pragma once
-struct myOwnTimeStruct
-{
+struct myOwnTimeStruct {
 	int min;
 	int hour;
 	int day;
 	int mon;
 	int year;
 
-    // print time to the screen
-	void printTime()
-	{
-		cout << day << "/" << mon << "/" << year  ;
+	// print time to the screen
+	void printTime() {
+		cout << day << "/" << mon << "/" << year;
 	}
 
 	// print time to the screen
-	void printDate()
-	{
+	void printDate() {
 		cout << hour << ":" << min;
 	}
 
-	string TimeToString()
-	{
+	string TimeToString() {
 		ostringstream oss;
-		oss <<"\t"<< hour << ":" << min;
+		oss << "\t" << hour << ":" << min;
 		string str = oss.str();
 		return str;
 	}
 
-	string DateToString()
-	{
+	string DateToString() {
 		ostringstream oss;
 		oss << day << "/" << mon << "/" << year;
 		string str = oss.str();
